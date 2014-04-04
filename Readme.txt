@@ -1,0 +1,1 @@
+You should read this file before doing anything in the project!
