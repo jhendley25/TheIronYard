@@ -24,7 +24,12 @@ end
 
 def check_win_final(playertotals,dealertotals)  # parameters is anything passed inside a function
 	
+#see if players / dealers bust
+	puts playertotals
+	puts dealertotals
 	if playertotals > dealertotals
+		puts "Player Wins"
+	elsif dealertotals > 21
 		puts "Player Wins"
 	elsif playertotals < dealertotals
 		puts "House Wins"
@@ -52,13 +57,21 @@ while @gameonplayer == true
 		cards_in_hand.push(new_card)
 		puts "This is your new card #{new_card}"
 		card_values += new_card
+		@playertotals = card_values
 		puts "Your total is now: #{card_values} "
+		if card_values > 21
+			puts "Player BUST"
+			@gameonplayer = false
+			@gameondealer = false
+		end
 	end
 
 	if hit_or_stay == 's'
 	  # check_win_final(@playertotals,@dealertotals)
 		@gameonplayer = false
+		
 	end
+	@playertotals = card_values
 end
 
 # Dealer needs to deal house cards
@@ -80,12 +93,14 @@ while @gameondealer == true
 		cards_in_dealer.push(new_card)
 		puts "This is your new card #{new_card}"
 		card_values += new_card
+		@dealertotals = card_values
 		puts "Dealer total is now: #{card_values} "
 		# @dealertotals = check_win_final(card_values)
 	else
 		puts "Dealer total is : #{card_values} "
 		# @dealertotals = check_win_final(card_values)
 		check_win_final(@playertotals,@dealertotals)
+		@dealertotals = card_values
 		@gameondealer = false
 	end
 end
