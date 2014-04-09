@@ -1,0 +1,3 @@
+## Comment list files or directories you would like to ignore in git
+.DS_Store
+koans
