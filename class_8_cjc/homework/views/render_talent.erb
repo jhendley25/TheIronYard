@@ -1,0 +1,27 @@
+<div class="content-container">
+  <div class="second-header">
+      <div class="job-listings-button">
+        Talent
+      </div>
+  </div>
+  <div class="job-content">
+    
+    <br>
+        <% @talent.each do |i| %>
+        <%= i[:talent] %>
+        <br>
+        <%= Faker::Name.name %>
+        <br>
+        <%= Faker::Address.city %>
+        <br>
+        <%= Faker::PhoneNumber.phone_number %>
+        <br>
+        <%= Faker::Internet.email %>
+        <br>    
+    <br>
+        <% end %>
+ 
+</div>
+ 
+</div>
+<%= erb :gallery_container %>

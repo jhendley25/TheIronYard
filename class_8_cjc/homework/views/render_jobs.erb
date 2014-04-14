@@ -1,0 +1,47 @@
+<div class="content-container">
+<!--   <strong> The Jobs go Here 
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </strong> -->
+  <div class="second-header">
+      <div class="job-listings-button">
+        Job Listings
+      </div>
+      <!-- <div class="second-button">
+        Company
+      </div>
+      <div class="second-button">
+        Location
+      </div>
+      <div class="second-button">
+        Phone
+      </div>
+      <div class="second-button">
+        Date
+      </div> -->
+  </div>
+  <div class="job-content">
+    
+    <br>
+        <% @jobs.each do |jobit| %>
+        <%= jobit[:job] %>
+        <br>
+        <%= Faker::Company.name %>
+        <br>
+        <%= Faker::Address.city %>
+        <br>
+        <%= Faker::PhoneNumber.phone_number %>
+        <br>
+        <%= Faker::Business.credit_card_expiry_date %>
+        <br>    
+    <br>
+        <% end %>
+ 
+</div>
+ 
+</div>
+<%= erb :gallery_container %>
