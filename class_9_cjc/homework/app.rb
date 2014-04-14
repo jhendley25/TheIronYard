@@ -18,7 +18,7 @@ DataMapper.finalize.auto_upgrade!
 
 # Homepage is the aggreate of all the posts. 
 get '/' do
-  @blogs = Blog.all
+  @blog = Blog.all
   erb :homepage, layout: :index
   
 end
@@ -28,10 +28,21 @@ get '/single_post' do
 end
 
 get '/create_post' do
-  erb :create_post, layout: :index
+  erb :create_post
+end
+post '/create_post' do
+  @blog = Blog.create params[:blog]
+  redirect to('/')
 end
 
-get '/edit_post' do
-  erb :edit_post, layout: :index
+get '/edit_post/:id' do
+  @blog = Blog.get params[:id]
+  erb :edit_post
+end
+
+put '/edit_post/:id' do
+  @blog = Blog.get params[:id]
+  @blog.update params [:person] 
+  redirect to ('/')
 end
 

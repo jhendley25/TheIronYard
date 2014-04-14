@@ -9,8 +9,10 @@
 
           <div class="blog-post">
             <h2 class="blog-post-title">
-              <%= @blogs.each do |blog| %>
-              <%= erb :blog, {locals: {blogit: blog_title}, {blogit: blog_content}}
+              <% @blog.each do |blog| %>
+              <%= erb :blog, {locals: {blogit:blog}} %>
+              <% end %>
+              <a href="/create_post">Create Blog</a>
             </h2>
             <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
 

@@ -1,30 +1,34 @@
+<a href="/">Home</a>
 <div class="row">
   <div class="col-sm-8 blog-main">
 
   
-  <form>
+  <form action = "/edit_post/<%= @blog.id%>" method="post">
     <div class="blog-post-title">
-      Type the Title of Blog Post Here:
+      Title of the Blog Post:
+     <input type="hidden" name="_method" value="put">
+     
     </div>
 
     <div class="form-group">
-        <textarea class="col-xs-12">
-        
-        </textarea>
-      <div class="clear">
-      </div>
+        <!-- <textarea class="col-xs-12"> -->
+        <input type="text" name="blog[blog_title]" placeholder="<%= @blog.blog_title %>">
+        <!-- </textarea> -->
+      <!-- <div class="clear">
+      </div> -->
 
     </div>
 
     <div class="blog-post">
-        Type the Content of Blog Post Here:
+        Content of the Blog Post:
         <div class="form-group">
-          <textarea class="col-xs-12">
+          <!-- <textarea class="col-xs-12"> -->
+        <input type="text" name="blog[blog_content]" placeholder="<% @blog.blog_content %>">
           
-          </textarea>
-          
-        <div class="clear">
-        </div>
+          <!-- </textarea> -->
+          <input type="submit" value="Edit Blog">
+        <!-- <div class="clear">
+        </div> -->
 
       </div>
 
@@ -32,5 +36,6 @@
 
     
   </form>
+  <a href="/">Home</a>
   </div>
 </div>
