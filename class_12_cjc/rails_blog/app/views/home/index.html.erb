@@ -1,0 +1,12 @@
+<h1>The Blog</h1>
+<%= link_to "New", new_blog_post_path %>
+  <% @list_of_blog_posts.each do |blog_post|%>
+  <br>
+    <%= blog_post.title %>
+    <%= blog_post.content %>
+
+    <%= link_to "Show", blog_post_path(blog_post) %>
+    <%= link_to "Edit", edit_blog_post_path(blog_post) %>
+    <%= link_to "Delete", blog_post_path(blog_post),
+      method: :delete %>
+    <% end %>

@@ -1,0 +1,8 @@
+<h2>New Post</h2>
+
+<% form_for @blog do |form| %>
+  <%= form.label :blog %>
+  <%= form.text_field :blog, placeholder:"blog name" %>
+  <br>
+  <%= form.submit "Create Post" %>
+<% end %>

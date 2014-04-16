@@ -1,0 +1,8 @@
+<h2>New Post</h2>
+
+<%= form_for @blog, url:blog_posts_path do |f| %>
+  <%= f.label :blog %>
+  <%= f.text_field :content, placeholder:"blog name" %>
+  <br>
+  <%= f.submit "Create Post" %>
+<% end %>

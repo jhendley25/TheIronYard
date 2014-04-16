@@ -1,0 +1,25 @@
+<h3>Welcome to the Movie Database</h4>
+  <%= link_to "New Movie", new_movie_path %>
+    <ul>
+      <% @movies_in_list.each do |movie| %>
+      <li>
+        <%= movie.name %>
+        <br>
+        <%= movie.year %>
+         <br>
+        <%= movie.rating %>
+         <br>
+        <%= movie.genre %>
+         <br>
+        <%= movie.criticrating %>
+         <br>
+        <%= movie.description %>
+        <br>
+        <%= link_to "#{movie.name}", movie_path(movie) %>
+        |
+        <%= link_to "Edit", edit_movie_path(movie) %>
+        |
+        <%= link_to 'Delete', movie_path(movie), method: :delete %>
+      </li>
+      <% end %>
+    </ul>

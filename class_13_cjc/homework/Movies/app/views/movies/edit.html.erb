@@ -1,0 +1,23 @@
+<h3>Edit Movie</h3>
+
+<%= form_for @movie do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: "Movie Name Here" %>
+  <br>
+  <%= f.label :year %>
+  <%= f.text_field :year, placeholder: "Year Movie was Release" %>
+  <br>
+  <%= f.label :rating %>
+  <%= f.text_field :rating, placeholder: "Rating of Movie, G, PG, or R" %>
+  <br>
+  <%= f.label :genre %>
+  <%= f.text_field :genre, placeholder: "Genre of Movie, Comdey, Horror, Suspense" %>
+  <br>
+  <%= f.label :criticrating %>
+  <%= f.text_field :criticrating, placeholder: "On a scale of 1 to 10, what did Critics Rate it at." %>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_field :description, placeholder: "Place a description of the Movie here" %>
+  <br>
+  <%= f.submit %>
+<% end %>

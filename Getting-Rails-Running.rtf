@@ -1,0 +1,146 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf190
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww6680\viewh12420\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 Create Headers\
+Index: \
+\
+#####\
+Create directory for project:\
+mkdir projectName\
+\
+#cd into projectName\
+cd projectName\
+\
+#create .rvmrc file\
+vim .rvmrc\
+type < \'91rvm 2.1@projectName \'97create >\
+:wq\
+\
+#cd . to activate rvmrc hidden file\
+cd .\
+\
+#install gemset\
+gem install rails\
+\
+#create rails scaffold within current project directory\
+\
+rails new .\
+\
+#Update Gemfile to edit mysql2 database\
+\
+vim Gemfile\
+\
+gem \'91mysql2\'92\
+:wq\
+\
+#install mysql gemset\
+gem install mysql2\
+\
+#open sublime in the current directory with Rails Scaffold\
+sub .\
+\
+## Create configurations for database\
+\
+edit the database.yml file within the config directory\
+\
+Open in sublime or vim config/database.yml\
+\
+\
+and edit the sqlite3 with the following: Ensure to change projectName to your Project Name\
+=============================\
+development:\
+  adapter:  'mysql2'\
+  database: projectName_development\
+\
+# Warning: The database defined as "test" will be erased and\
+# re-generated from your development database when you run "rake".\
+# Do not set this db to the same as development or production.\
+\
+test:\
+  adapter: 'mysql2'\
+  database: projectName_test\
+\
+production:\
+  adapter:  'mysql2'\
+  database: projectName_production\
+\
+===============================\
+\
+#Create your database\
+rake db:create\
+#Restart your Rails Server\
+rails server OR rails s\
+\
+#Check to see if your database was created properly.\
+check the Sequel Pro App connect as localhost\
+\
+#Check your local host and make sure server is up\
+\
+# Setup your Routes\
+\pard\pardeftab720
+
+\fs26 \cf0 vim routes.rb\
+root \'91home#index'\
+\
+resources :movies\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\fs24 \cf0 \
+# Generate your Rails Controller Home\
+rails generate controller home\
+\
+#Generate your App (project name) i.e. movies (Controllers are Plural)\
+rails generate controller movies\
+\
+\'97\'97# Just in case you made your controller singular, you can destroy the controller\
+rails destroy controller < controller name>\
+\
+# Edit the home_controller.rb and add the index\
+def index\
+end\
+\
+# Create the index.html.erb under the \'91/app/views/home/.\'92  \
+vim /projectName/app/views/home/index.html.erb\
+\
+# Create the projectName views under /projectName/app/views/projectName/\'85\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+vim /projectName/app/views/projectName/edit.html.erb new.html.erb show.html.erb\
+\
+add the data you want new and edit will be similar.\
+\
+show will just show a single instance\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+#Configure you application_controller (i.e. projectName_controller.rb)\
+\
+# Then generate your Model\
+rails generate model movie\
+\
+# Configure the Migrations\
+tell your table what your columns should be i.e. t.string :name etc etc\
+\
+# After Migrations are complete migrate your db\
+\
+rake db:migrate\
+\
+#\'97In case you spelled something WONG, do a\
+rake db:rollback\
+\
+# Update the projectName_controller.rb\
+\
+create the def of create and make sure the params can pass through  with the \
+\
+private\
+	def dbName_params\
+		params.require(:db).permit(:name)\
+\
+#   \
+\
+\
+#\
+\
+}
