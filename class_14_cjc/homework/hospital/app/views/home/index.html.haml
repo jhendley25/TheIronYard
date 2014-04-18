@@ -1,0 +1,9 @@
+%h4 Hospital Chris
+=link_to 'New Patient', new_patient_path
+%ul
+  - @patients.each do |patient|
+    %li
+      =patient.name 
+      =patient.description
+      =link_to 'Show Patient', patient_path(patient)    
+      =link_to 'Edit Patient', edit_patient_path(patient)
