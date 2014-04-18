@@ -23,6 +23,12 @@ def update
   redirect_to root_path
 end
 
+def doctor
+  @patient = Patient.find params[:id]
+  @patient.go_to_doctor!
+  redirect_to root_path
+end
+
 private
   def patient_params
     params.require(:patient).permit(:name, :description)
