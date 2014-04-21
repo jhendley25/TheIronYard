@@ -1,0 +1,10 @@
+= form_for @institution do |f|
+  = render 'layouts/error_messages', object: @institution
+  = f.label :institution_name
+  = f.text_field :institution_name
+  %br
+  = f.label :location
+  = f.text_field :location
+  %br
+  = f.label :phone_number
+  = f.text_field :phone_number

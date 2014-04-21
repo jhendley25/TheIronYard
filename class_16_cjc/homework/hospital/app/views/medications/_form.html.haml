@@ -1,0 +1,16 @@
+= form_for [@patient, @medication] do |f|
+  = render 'layouts/error_messages', object: @medication
+  = f.label :medication_name
+  = f.text_field :medication_name
+  %br
+  = f.label :description
+  = f.text_area :description
+  %br
+  = f.label :amount_dispensed
+  = f.text_field :amount_dispensed
+  %br
+  = f.label :frequency
+  = f.text_field :frequency
+  %br
+  = f.submit
+= link_to "Cancel", medication_path(@medication)

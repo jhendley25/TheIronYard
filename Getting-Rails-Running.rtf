@@ -1,7 +1,7 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf190
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
-\margl1440\margr1440\vieww10400\viewh16520\viewkind0
+\margl1440\margr1440\vieww11000\viewh16100\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \f0\fs24 \cf0 Create Headers\
@@ -148,4 +148,81 @@ When I click the Go Home, bring to a new page that only has the description fiel
 \
 \
 \
-Active Record Valadation Rails\'97\'97 rails doc}
+Active Record Valadation Rails\'97\'97 rails doc\
+\
+\
+\
+\
+\
+\
+new_institution_patient\
+\
+\
+\
+\
+\
+\
+medication\'97> patient\
+\
+patient \'97> instituition \
+\
+\
+###############################################\
+\
+medication \'97> patient_id\
+\
+patient \'97> instituition_id \
+\
+\
+\
+Created medications model\
+\
+rails g model medication\
+rails g model institution\
+\
+rails g controller medications\
+rails g controller institution\
+\
+update db strings for medications and institutions\
+\
+\
+\
+\
+\
+from the root route\'97> \
+\
+\
+\
+=link_to 'New Patient', new_institution_patient_path(@institution)\
+%ul\
+  - @patients.each do |patient|\
+    %li\{  class: "#\{patient.workflow_state\}"\}\
+      =patient.name\
+      (#\{patient.workflow_state\})\
+      %br \
+      =patient.description\
+      - if patient.workflow_state == 'waiting'\
+        =link_to "Go To Doctor", doctor_patient_path(patient), method: :patch\
+        =link_to "Go To Xray", xray_patient_path(patient), method: :patch\
+        =link_to "Go To Surgery", surgery_patient_path(patient), method: :patch\
+        =link_to "Leave Hospital", leaving_patient_path(patient), method: :patch  \
+      - elsif patient.workflow_state == 'doctor'\
+        =link_to "Go To Xray", xray_patient_path(patient), method: :patch\
+        =link_to "Go To Surgery", surgery_patient_path(patient), method: :patch\
+        =link_to "Go To Billing", billpay_patient_path(patient), method: :patch  \
+      - elsif patient.workflow_state == 'xray'\
+        =link_to "Go To Surgery", surgery_patient_path(patient), method: :patch\
+        =link_to "Go To Doctor", doctor_patient_path(patient), method: :patch\
+        =link_to "Go To Billing", billpay_patient_path(patient), method: :patch  \
+      - elsif patient.workflow_state == 'surgery'\
+        =link_to "Go To Doctor", doctor_patient_path(patient), method: :patch\
+        =link_to "Go To Xray", xray_patient_path(patient), method: :patch\
+        =link_to "Go To Billing", billpay_patient_path(patient), method: :patch  \
+      - if patient.workflow_state == 'billpay'\
+        =link_to "Go Home", leaving_patient_path(patient), method: :patch \
+      %br\
+      =link_to 'Show Patient', patient_path(patient)    \
+      =link_to 'Edit Patient', edit_patient_path(patient)\
+      %br\
+\
+}

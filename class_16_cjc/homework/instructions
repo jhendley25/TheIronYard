@@ -1,0 +1,20 @@
+#######---UPDATE---#######
+
+Addd 2 classes Medications and Hospital
+
+hospital will have many patients
+
+patient will have many medications.
+
+##########################################################
+# We are creating a tracking system for a patient as he/she goes through a hospital
+
+- Use the Workflow gem we used today to control patient statuses.
+- The patient will be transferred from the waiting room, to doctor checkup, to xrays, to surgery, to paying bills, to leaving.
+- The patients should be able to jump directly from the waiting room to every status except paying bills
+  - This will involve multiple events for each state!
+  - I also strongly suggest making 1 route that controlls transferring between all states. If you do so, it should accept the previous and state wanted as parameters
+- As the patient transfers to leaving the hospital, I want to be presented with a description field to write any details about said patient's trip through the hospital.
+- Use HAML!
+- Make it look nice.
+  - You don't have ot go all out, but at least make it somewhat presentable.

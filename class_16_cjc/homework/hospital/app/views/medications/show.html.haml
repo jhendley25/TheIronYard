@@ -1,0 +1,11 @@
+= @medication.name
+%br
+Patient: #{@patient.name}
+%br
+= @medication.description
+%br
+= @medication.amount_dispensed
+%br
+= @medication.frequency
+%br
+= link_to "Medication Page", medication_path(@medication)
