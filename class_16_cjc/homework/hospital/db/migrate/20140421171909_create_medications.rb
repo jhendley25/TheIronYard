@@ -11,3 +11,5 @@ class CreateMedications < ActiveRecord::Migration
     end
   end
 end
+
+
