@@ -6,21 +6,18 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :institutions do
     resources :patients do
-    resources :medications 
-    # collection  
-        end
-       
-    end
+      resources :medications 
 
-    member do
-      patch :waiting
-      patch :doctor
-      patch :xray
-      patch :surgery
-      patch :billpay
-      patch :leaving
-      get :postop
-      patch :postop
+      member do
+        patch :waiting
+        patch :doctor
+        patch :xray
+        patch :surgery
+        patch :billpay
+        patch :leaving
+        get :postop
+        patch :postop
+      end
     end
   end
 

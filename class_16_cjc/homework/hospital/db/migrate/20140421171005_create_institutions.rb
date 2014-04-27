@@ -4,7 +4,6 @@ class CreateInstitutions < ActiveRecord::Migration
       t.string :institution_name
       t.string :location
       t.string :phone_number
-      
       t.timestamps
     end
   end

@@ -3,9 +3,10 @@
 %ul
 - @institutions.each do |institution|
   %li
-  = institution.institution_name
+  = link_to institution.name, institution_path(institution)
   = institution.location
-  = institution.phone_number
-  = link_to 'Show Institution', institution_path(institution)
+  / =workflow_status(patient
+
+  / = link_to 'Show Institution', institution_path(institution)
   = link_to 'Edit Institution', edit_institution_path(institution)
   = link_to 'Delete Institution', institution_path(institution), method: :delete
