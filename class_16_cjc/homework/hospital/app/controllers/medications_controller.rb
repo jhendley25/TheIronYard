@@ -1,9 +1,6 @@
 class MedicationsController < ApplicationController
   before_filter :find_patient, only: [:show, :edit, :update, :destroy]
 
-  def index
-  end
-
   def show
   end
 

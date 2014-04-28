@@ -2,9 +2,7 @@
 %br
 = @institution.name
 %br
-= @institution.location
-%br
-= @institution.phone_number
+/ = @institution.location
 %br
 %hr
 = link_to "New Patient", new_institution_patient_path(@institution)
@@ -15,6 +13,8 @@
       = link_to patient.name, institution_patient_path(@institution, patient)
       |
       = patient.description
+      |
+      =workflow_status(patient)
       |
       = link_to "Edit", edit_institution_patient_path(@institution, patient)
       |

@@ -1,5 +1,5 @@
-= form_for [@institution,@patient] do |f|
-  = render 'layouts/error_messages', object: @patient
+= form_for [@institution, @patient] do |f|
+  / = render 'layouts/error_messages', object: @patient
   =f.label :name
   =f.text_field :name, placeholder: "Name"
   %br

@@ -1,10 +1,6 @@
 class InstitutionsController < ApplicationController
   before_filter :find_institution, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @institution = Institution.all 
-  end
-
   def show
     @institution = Institution.all
   end
@@ -15,7 +11,7 @@ class InstitutionsController < ApplicationController
   
   def create
     @institution = Institution.create institution_params
-    redirect_to institutions_path(@patient)
+    redirect_to root_path
   end
 
   def edit
@@ -23,21 +19,21 @@ class InstitutionsController < ApplicationController
 
   def update
     @institution.update_attributes institution_params
-    redirect_to institutions_path(@patient)
+    redirect_to root_path
   end
 
   def destroy
     @institution.delete
-    redirect_to institutions_path(@patient)
+    redirect_to root_path
   end
 
   private 
-    def find_patient
-      @institution = Institution.find params[:institution_id]
+    def find_institution
+      @institution = Institution.find params[:id]
     end
 
     def institution_params
       params.require(:institution).permit(:name, :location)
     end
-  end
+  
 end

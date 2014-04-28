@@ -1,7 +1,7 @@
 class PatientsController < ApplicationController
 
 def show
-  @patientz = Patient.find params[:id]
+  @patient = Patient.find params[:id]
 end
 
 def new

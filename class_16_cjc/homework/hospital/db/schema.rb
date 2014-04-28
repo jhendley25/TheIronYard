@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20140421171909) do
 
   create_table "institutions", force: true do |t|
-    t.string   "institution_name"
+    t.string   "name"
     t.string   "location"
     t.string   "phone_number"
     t.datetime "created_at"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140421171909) do
 
   create_table "medications", force: true do |t|
     t.integer  "patient_id"
-    t.string   "medication_name"
+    t.string   "name"
     t.text     "description"
     t.string   "amount_dispensed"
     t.string   "frequency"

@@ -1,11 +1,11 @@
 %h4 Hospital Chris
 = link_to 'New Institution', new_institution_path
-%ul
+%br
 - @institutions.each do |institution|
-  %li
+  %br
   = link_to institution.name, institution_path(institution)
   = institution.location
-  / =workflow_status(patient
+  / =workflow_status(patient)
 
   / = link_to 'Show Institution', institution_path(institution)
   = link_to 'Edit Institution', edit_institution_path(institution)
