@@ -15,6 +15,7 @@ class MedicationsController < ApplicationController
   end
 
   def edit
+    @medication = Medication.find params[:id]
   end
 
   def update
@@ -28,8 +29,8 @@ class MedicationsController < ApplicationController
   end
 
 private 
-  def find_patient
-    @medication = Patient.find params[:patient_id]
+  def find_medication
+    @medication = Medication.find params[:patient_id]
   end
 
   def medication_params
