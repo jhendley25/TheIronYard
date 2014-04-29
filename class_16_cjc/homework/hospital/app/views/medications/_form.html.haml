@@ -13,4 +13,5 @@
   = f.text_field :frequency
   %br
   = f.submit
-= link_to "Cancel", medication_path(@medication)
+  = link_to "Cancel", root_path
+  / = link_to "Cancel", institution_patient_medication_path(@patient,@medication)

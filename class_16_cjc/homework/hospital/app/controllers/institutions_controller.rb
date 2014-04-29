@@ -2,7 +2,7 @@ class InstitutionsController < ApplicationController
   before_filter :find_institution, only: [:show, :edit, :update, :destroy]
 
   def show
-    @institution = Institution.all
+    @patients = @institution.patients 
   end
 
   def new

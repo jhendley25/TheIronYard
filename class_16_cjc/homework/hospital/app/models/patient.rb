@@ -29,7 +29,8 @@ class Patient < ActiveRecord::Base
       event :go_to_leaving, transitions_to: :leaving
 
     end       
-    state :leaving
+    state :leaving do
+      event :go_to_postop, transitions_to: :postop 
+    end
   end  
-
 end

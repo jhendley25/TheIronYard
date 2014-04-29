@@ -5,8 +5,8 @@
   %br
   = link_to institution.name, institution_path(institution)
   = institution.location
-  / =workflow_status(patient)
+  / =workflow_status(@institution,patient)
 
-  / = link_to 'Show Institution', institution_path(institution)
+  = link_to 'Show Institution', institution_path(institution)
   = link_to 'Edit Institution', edit_institution_path(institution)
   = link_to 'Delete Institution', institution_path(institution), method: :delete
