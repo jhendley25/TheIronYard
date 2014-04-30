@@ -1,0 +1,5 @@
+
+Hospital v2
+
+CHange your relationships up a bit. You need to add Hospital and Medication. Your patients should live under your hospitals. And your medications should live under your patients. You should be able to create multiple hospitals and have many patients there. Your medications should also be related to your patients. You should be able to have many medications.
+
