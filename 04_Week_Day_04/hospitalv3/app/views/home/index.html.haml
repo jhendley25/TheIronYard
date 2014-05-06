@@ -1,0 +1,12 @@
+%h4 Chris Hospital Platform V3
+= link_to 'New Institution', new_institution_path
+%br
+- @institutions.each do |institution|
+  %br
+  = link_to institution.name, institution_path(institution)
+  Location:
+  = institution.location
+  %br
+  = link_to 'Show Institution', institution_path(institution)
+  = link_to 'Edit Institution', edit_institution_path(institution)
+  = link_to 'Delete Institution', institution_path(institution),method: :delete

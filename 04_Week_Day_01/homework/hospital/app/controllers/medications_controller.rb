@@ -1,7 +1,8 @@
 class MedicationsController < ApplicationController
-  before_filter :find_medication, only: [:show, :edit, :update, :destroy]
-  before_filter :find_patient
   before_filter :find_institution
+  before_filter :find_patient
+  before_filter :find_medication, only: [:show, :edit, :update, :destroy]
+ 
 
   def show
   end
@@ -12,8 +13,7 @@ class MedicationsController < ApplicationController
   
   def create
     @medication = @patient.medications.create medication_params
-    # if @medication.save
-    #   redirect_to institution_patient_path(@institution,@medications)
+    redirect_to institution_patient_path(@institution,@patient)
   end
 
   def edit
@@ -22,12 +22,12 @@ class MedicationsController < ApplicationController
 
   def update
     @medication.update_attributes medication_params
-    redirect_to patient_path(@patient,@medications)
+    redirect_to institution_patient_path(@institution, @patient, @medications)
   end
 
   def destroy
     @medication.delete
-    redirect_to patient_path(@patient,@medications)
+    redirect_to institution_patient_path(@institution,@patient)
   end
 
   private 
@@ -40,7 +40,7 @@ class MedicationsController < ApplicationController
     end
     
     def find_medication
-      @medication = @institution.patient.medication.find params[:id]
+      @medication = @patient.medications.find params[:id]
     end
 
     def medication_params

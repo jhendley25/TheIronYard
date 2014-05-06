@@ -1,0 +1,14 @@
+%h3 Add Doctor
+
+= form_for [@institution,@create_doctor], url: create_doctor_institution_path(@institution) do |f|
+  - if @institution.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@institution.errors.count, "error")} prohibit this doctor from being saved:"
+      %ul
+        -@doctor.errors.full_messages do |msg|
+          %li = msg
+   
+  = f.label :name
+  = f.text_area :name
+
+  = f.submit 'Save'

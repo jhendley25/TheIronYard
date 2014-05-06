@@ -1,0 +1,32 @@
+= link_to "Go back to Hospital", institution_path(@institution)
+%h3 Patient Information
+= @patient.name
+(#{workflow_status(@institution,@patient)})
+%br
+= @patient.description
+%br
+%br
+= link_to "New Medication", new_institution_patient_medication_path(@institution, @patient)
+%br
+= link_to "Add Doctor", new_doctor_institution_patient_path(@institution, @patient)
+%br
+%h4 Medications Taken
+- @patient.medications.each do |medication|
+  = medication.name
+  %br
+  = medication.amount_dispensed
+  %br
+  = medication.frequency
+  %br
+  = link_to "Edit", edit_institution_patient_medication_path(@institution, @patient, medication)
+  %br
+  = link_to "Delete", institution_patient_medication_path(@institution, @patient, medication), method: :delete
+  %br
+
+  %hr
+%br
+%h4 Patient's Doctors
+- @patient.doctors.each do |doctor_list|
+  %li
+    = doctor_list.name
+= link_to 'Home', root_path

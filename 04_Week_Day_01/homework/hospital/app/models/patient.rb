@@ -27,7 +27,6 @@ class Patient < ActiveRecord::Base
     end
     state :billpay do
       event :go_to_leaving, transitions_to: :leaving
-
     end       
     state :leaving do
       event :go_to_postop, transitions_to: :postop 

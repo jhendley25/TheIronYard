@@ -21,6 +21,11 @@ class PatientsController < ApplicationController
     redirect_to root_path
   end
 
+  def destroy
+    @patient.delete
+    redirect_to institution_path(@institution)
+  end
+
   def waiting
     @patient.go_to_waiting!
     redirect_to institution_path(@institution)

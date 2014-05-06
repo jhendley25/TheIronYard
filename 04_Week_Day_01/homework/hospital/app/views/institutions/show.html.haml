@@ -13,7 +13,7 @@
       = link_to patient.name, institution_patient_path(@institution, patient)
       |
       = patient.description
-      |
+      / |
       / = workflow_status(@institution.patient)
       |
       = link_to "Edit", edit_institution_patient_path(@institution, patient)
@@ -21,18 +21,4 @@
       = link_to "Delete", institution_patient_path(@institution, patient), method: :delete
       | 
       = link_to "New Medication", new_institution_patient_medication_path(@institution,patient)
-      / in here
-      / @institution, patient
-
-      - patient.medications.each do |medication|
-
-        / = link_to medication.name, institution_patient_medication_path(@institutions.patient, medication)
-        |
-        = medication.description
-        |
-        = medication.cost
-        |
-        = link_to "Edit", edit_institution_patient_medication_path(@institution.patient, medication)
-        |
-        = link_to "Delete", institution_patient_medication_path(@institution.patient, medication), method: :delete
-%hr
+      

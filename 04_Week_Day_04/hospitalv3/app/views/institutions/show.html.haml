@@ -1,0 +1,30 @@
+= link_to "Cancel", root_path
+%br
+= @institution.name
+%br
+= @institution.location
+%br
+%hr 
+= link_to "New Patient", new_institution_patient_path(@institution)
+%br
+= link_to "Add Doctor", new_doctor_institution_path(@institution)
+%ul
+  Patient
+  - @patients.each do |patient|
+    %li
+      = link_to patient.name, institution_patient_path(@institution, patient)
+      |
+      = patient.description
+      |
+      = link_to "Edit", edit_institution_patient_path(@institution, patient)
+      |
+      = link_to "Delete", institution_patient_path(@institution, patient), method: :delete
+      |
+      = link_to "New Medication",new_institution_patient_medication_path(@institution,patient)
+      |
+      = link_to "Add Doctor", new_doctor_institution_patient_path(@institution,patient)
+= "Doctors that Work Here"
+%br
+- @institution.doctors.each do |doctor_list|
+  %li
+    = doctor_list.name

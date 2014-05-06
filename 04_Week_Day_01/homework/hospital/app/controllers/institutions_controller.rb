@@ -35,5 +35,4 @@ class InstitutionsController < ApplicationController
     def institution_params
       params.require(:institution).permit(:name, :location)
     end
-  
 end

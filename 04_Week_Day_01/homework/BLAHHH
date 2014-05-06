@@ -1,0 +1,20 @@
+BLAHHH
+/ in here
+      / @institution, patient
+
+      / - patient.medications.each do |medication|
+
+      /   / = link_to medication.name, institution_patient_medication_path(@institutions.patient, medication)
+      /   %br
+      /   = medication.name
+      /   %br
+      /   = medication.description
+      /   %br
+      /   = medication.amount_dispensed
+      /   %br
+      /   = medication.frequency
+      /   %br
+        / = link_to "Edit", edit_institution_patient_medication_path(@institution.patient, medication)
+        / |
+        / = link_to "Delete", institution_patient_medication_path(@institution.patient, medication), method: :delete
+%hr
