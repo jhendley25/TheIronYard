@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       post :create_doctor
     end
     resources :patients do
-     member do 
+      member do 
           get :new_doctor
           post :create_doctor
         end
