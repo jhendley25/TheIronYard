@@ -1,7 +1,7 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf190
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
-\margl1440\margr1440\vieww20040\viewh19140\viewkind0
+\margl1440\margr1440\vieww19000\viewh22520\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \f0\fs28 \cf0 #1) 20 Minute Rule\
@@ -42,6 +42,8 @@ gem \'91mysql2\'92\
 \
 #install mysql gemset\
 gem install mysql2\
+\
+#bundle install\
 \
 #open sublime in the current directory with Rails Scaffold\
 sub .\
@@ -150,7 +152,7 @@ When I click the Go Home, bring to a new page that only has the description fiel
 \
 \
 \
-Active Record Valadation Rails\'97\'97 rails doc\
+Active Record Validation Rails\'97\'97 rails doc\
 \
 \
 \
@@ -242,15 +244,13 @@ rails generate controller medications\
 rails generate migration add_columns_to_institutions name:string location:string phone_number:string \
 \
 rails generate migration add_columns_to_patients institution_id:integer name:string workflow_state:string description:text\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
-\cf0 \
+\
 rails generate migration add_columns_to_medications patient_id:integer name:string description:text amount_dispensed:string frequency:string\
 \
 create index view for home\
 touch index.html.haml \
 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
-\cf0 \'97\'97create scaffold for institutions\
+\'97\'97create scaffold for institutions\
 _form.html.haml\
 new.html.haml\
 edit.html.haml\
@@ -259,21 +259,17 @@ show.html.haml\
 or just type\
 touch _form.html.haml new.html.haml edit.html.haml show.html.haml\
 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
-\cf0 \'97\'97create scaffold patients\
+\'97\'97create scaffold patients\
 _form.html.haml\
 new.html.haml\
 edit.html.haml\
 show.html.haml\
 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
-\cf0 or just type\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
-\cf0 touch _form.html.haml new.html.haml edit.html.haml show.html.haml\
+or just type\
+touch _form.html.haml new.html.haml edit.html.haml show.html.haml\
 \
 \'97\'97create scaffold for medications\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
-\cf0 _form.html.haml\
+_form.html.haml\
 new.html.haml\
 edit.html.haml\
 show.html.haml\
@@ -329,7 +325,8 @@ rake db:migrate\
 \
 Older Homeworks\'97Hospital\'97-\
 \
-{\field{\*\fldinst{HYPERLINK "https://github.com/Brian-Boyd/TheIronYard/tree/master/05week-day4/HospitalApp"}}{\fldrslt https://github.com/Brian-Boyd/TheIronYard/tree/master/05week-day4/HospitalApp}}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+{\field{\*\fldinst{HYPERLINK "https://github.com/Brian-Boyd/TheIronYard/tree/master/05week-day4/HospitalApp"}}{\fldrslt \cf0 https://github.com/Brian-Boyd/TheIronYard/tree/master/05week-day4/HospitalApp}}\
 \
 \
 \
