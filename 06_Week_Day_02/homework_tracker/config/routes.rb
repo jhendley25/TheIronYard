@@ -3,6 +3,20 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :locations do
     resources :cohorts do 
+      resources :assignments do
+        member do
+          get :new_comment
+          post :create_comment
+        end
+        resources :submissions do 
+          resources :links do
+            member do
+              get :new_comment
+              post :create_comment
+            end
+          end
+        end
+      end
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
