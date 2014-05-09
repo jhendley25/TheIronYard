@@ -1,4 +1,14 @@
 .starter-template
-    %h1 Welcome to the Iron Yard Homework Tracker
+  %h1 Welcome to the Iron Yard Homework Tracker
+  %br
+  Locations
+  %br
+  - @locations.each do |location|
+    = link_to "#{location.city} #{location.state}", location_path(location)
+    |
+    = link_to "Delete", location_path(location), method: :delete
     %br
-    
+
+= link_to "New Location", new_location_path(@location)
+
+ 

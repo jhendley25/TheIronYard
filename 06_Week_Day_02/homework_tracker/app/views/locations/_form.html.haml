@@ -1,0 +1,10 @@
+= form_for @location do |f|
+  = f.label :city
+  = f.text_field :city, placeholder: "City of Location"
+  %br
+  = f.label :state
+  = f.text_field :state, placeholder: "State of Location"
+  %br
+  = f.submit
+  |
+  = link_to "Cancel", root_path

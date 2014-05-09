@@ -1,3 +1,3 @@
 class Link < ActiveRecord::Base
-  belong_to: submission
+  belongs_to :submission
 end

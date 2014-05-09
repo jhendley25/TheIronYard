@@ -1,0 +1,7 @@
+= form_for [@location, @cohort] do |f|
+  = f.label :name
+  = f.text_field :name, placeholder: "Name of Cohort"
+  %br
+  = f.submit
+  |
+  = link_to "Cancel", location_path
