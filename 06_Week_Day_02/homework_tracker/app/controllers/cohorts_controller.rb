@@ -1,4 +1,4 @@
-class CohortsController < 
+class CohortsController < ApplicationController
   before_filter :find_location
   before_filter :find_cohort, only: [:show, :edit, :update, :destroy]
   # def index
