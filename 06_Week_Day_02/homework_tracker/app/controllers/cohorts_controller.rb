@@ -32,16 +32,15 @@ class CohortsController < ApplicationController
   end
 
 private
-
   def find_location
-    @location = Location.find params[:id]
+    @location = Location.find params[:location_id]
   end
 
   def find_cohort
-    @cohort = @location.cohort.find params[:id]
+    @cohort = @cohort.find params[:id]
   end
 
-  def cohorts_params
+  def cohort_params
     params.require(:cohort).permit(:name)
   end
 end

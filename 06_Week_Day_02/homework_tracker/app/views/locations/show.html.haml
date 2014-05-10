@@ -1,7 +1,11 @@
 = @location.city
 = @location.state
+%br
 - @location.cohorts.each do |x|
+  = link_to "#{x.name}", location_cohort_path(x)
   = x.name
+  %br
 
 = link_to "New Course", new_location_cohort_path(@location)
-= link_to "Delete", location_path(@location), method: :delete
+|
+= link_to "Delete Location", location_path(@location), method: :delete
