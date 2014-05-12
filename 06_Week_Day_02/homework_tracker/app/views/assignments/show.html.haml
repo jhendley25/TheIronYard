@@ -1,0 +1,21 @@
+= @assignment.title
+%br
+= @assignment.body
+%br
+= link_to "Enter Submission", new_location_cohort_assignment_submission_path(@location, @cohort, @assignment)
+%br
+- @assignment.submissions.each do |x|
+  = link_to "#{x.name}", location_cohort_assignment_submission_path(@location, @cohort, @assignment, x)
+  |
+  = link_to "Edit", edit_location_cohort_assignment_submission_path(@location, @cohort, @assignment, x)
+  %br
+/ = link_to "Show Submission", location_cohort_assignment_submission_path(@location, @cohort, @assignment, @submission)
+%br
+= link_to "Go Back To Cohort", location_cohort_path(@location, @cohort)
+
+
+/ = @assignment.name
+/ - @cohort.assignments.each do |x|
+/   = link_to "#{x.title}", location_cohort_assignment_path(@location, @cohort, x)
+/   = x.body
+/   %br

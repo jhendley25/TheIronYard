@@ -1,8 +1,9 @@
 class CohortsController < ApplicationController
   before_filter :find_location
   before_filter :find_cohort, only: [:show, :edit, :update, :destroy]
-  # def index
-  # end
+
+  def index
+  end
 
   def new
     @cohort = @location.cohorts.new
@@ -14,7 +15,7 @@ class CohortsController < ApplicationController
   end
 
   def show
-    @assignments = @location.chort.assignments 
+    @assignments = @cohort.assignments
   end
 
   def edit
@@ -37,7 +38,7 @@ private
   end
 
   def find_cohort
-    @cohort = @locations.cohorts.find params[:id]
+    @cohort = @location.cohorts.find params[:id]
   end
 
   def cohort_params

@@ -8,13 +8,12 @@ Rails.application.routes.draw do
           get :new_comment
           post :create_comment
         end
-        resources :submissions do 
-          resources :links do
-            member do
-              get :new_comment
-              post :create_comment
-            end
+        resources :submissions do
+           member do
+            get :new_comment
+            post :create_comment
           end
+
         end
       end
     end

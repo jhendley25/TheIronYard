@@ -1,2 +1,10 @@
-= @location.cohorts.name
+= @cohort.name 
+= "Assignments"
 %br
+- @assignments.each do |x|
+  = link_to "#{x.title}", location_cohort_assignment_path(@location, @cohort, x)
+  %br
+
+= link_to "New Assignment", new_location_cohort_assignment_path(@location, @cohort)
+%br
+= link_to "Go Back to Location", location_path(@location)

@@ -3,31 +3,35 @@ class AssignmentsController < ApplicationController
   before_filter :find_cohort
   before_filter :find_assignment, only: [:show, :edit, :update, :destroy]
 
+  def index
+    
+  end
+  
   def new
-    @assignment = @cohort.assignment.new
+    @assignment = @cohort.assignments.new
   end
 
   def create
-    @assignment = @location.assignment.create assignment_params
-    redirect_to location_path(@location)
+    @assignment = @cohort.assignments.create assignment_params
+    redirect_to location_cohort_path(@location, @cohort)
   end
 
   def show
-    @assignment = @location.chort.assignments 
+    @assignments = @cohort.assignments 
   end
 
   def edit
-    @assignement = Assignment.find params[:id]
+    @assignment = Assignment.find params[:id]
   end
 
   def update
     @assignment.update_attributes assignment_params
-    redirect_to location_cohort_path(@location, @cohort, @assignment)
+    redirect_to location_cohort_assignment_path(@location, @cohort, @assignment)
   end
 
   def destroy
-    @cohort.delete
-    redirect_to location_path(@location)
+    @assignment.delete
+    redirect_to location_cohort_assignment_path(@location, @cohort, @assignment)
   end
 
 private
@@ -37,6 +41,10 @@ private
 
   def find_cohort
     @cohort = Cohort.find params[:cohort_id]
+  end
+
+  def find_assignment
+    @assignment = @cohort.assignments.find params[:id]
   end
 
   def assignment_params
