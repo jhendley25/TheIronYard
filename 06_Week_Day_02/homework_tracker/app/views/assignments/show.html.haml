@@ -8,6 +8,8 @@
   = link_to "#{x.name}", location_cohort_assignment_submission_path(@location, @cohort, @assignment, x)
   |
   = link_to "Edit", edit_location_cohort_assignment_submission_path(@location, @cohort, @assignment, x)
+  |
+  = link_to "Delete", location_cohort_assignment_submission_path(@location, @cohort, @assignment, x), method: :delete
   %br
 / = link_to "Show Submission", location_cohort_assignment_submission_path(@location, @cohort, @assignment, @submission)
 %br

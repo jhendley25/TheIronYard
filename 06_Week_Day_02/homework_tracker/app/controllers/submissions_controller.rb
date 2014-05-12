@@ -47,8 +47,8 @@ private
     @assignment = Assignment.find params[:assignment_id]
   end
 
-   def find_submission
-    @submission = @cohort.assignments.find params[:id]
+  def find_submission
+    @submission = @assignment.submissions.find params[:id]
   end
 
   def submission_params
@@ -56,6 +56,7 @@ private
       :name,
       :user_id,
       :assignment_id,
+      links_attributes: [:id, :url, :_destroy]
       )
   end
 end

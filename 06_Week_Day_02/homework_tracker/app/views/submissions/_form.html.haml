@@ -1,7 +1,14 @@
-= form_for [@location, @cohort, @assignment, @submission] do |f|
+= nested_form_for [@location, @cohort, @assignment, @submission] do |f|
   = f.label :name
   = f.text_field :name, placeholder: "Submission Name"
   %br
+
+
+  = f.fields_for :links do |links_form|
+    = links_form.label :url
+    = links_form.text_field :url, placeholder: "URL Submission Link"
+    =links_form.link_to_remove "Remove this Link"
+  %p= f.link_to_add "Add Link", :links
   = f.submit
   |
-  = link_to "Cancel", location_cohort_assignment_path(@location, @cohort, @assignment)
+= link_to "Cancel", location_cohort_assignment_path(@location, @cohort, @assignment)
