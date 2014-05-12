@@ -37,7 +37,7 @@ private
   end
 
   def find_cohort
-    @cohort = @cohort.find params[:id]
+    @cohort = @locations.cohorts.find params[:id]
   end
 
   def cohort_params
