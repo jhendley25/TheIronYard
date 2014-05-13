@@ -1,0 +1,7 @@
+%h3 Add Comment to Assignment
+
+= form_for [@assignment, @create_comment], url: create_comment_location_cohort_assignment_path(@assignment, @submission) do |f|
+  = f.label :comment
+  = f.text_area :comment
+
+  = f.submit 'Save'

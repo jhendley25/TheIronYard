@@ -3,6 +3,7 @@
 = @assignment.body
 %br
 = link_to "Enter Submission", new_location_cohort_assignment_submission_path(@location, @cohort, @assignment)
+= link_to "Add Comment", new_comment_location_cohort_assignment(@location, @cohort, @assignment)
 %br
 - @assignment.submissions.each do |x|
   = link_to "#{x.name}", location_cohort_assignment_submission_path(@location, @cohort, @assignment, x)
