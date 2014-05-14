@@ -1,7 +1,7 @@
 class AssignmentsController < ApplicationController
   before_filter :find_location
   before_filter :find_cohort
-  before_filter :find_assignment, only: [:show, :edit, :update, :destroy]
+  before_filter :find_assignment, only: [:create_comment, :show, :edit, :update, :destroy]
 
   def index
     
@@ -17,7 +17,8 @@ class AssignmentsController < ApplicationController
   end
 
   def show
-    @assignments = @cohort.assignments 
+    @assignments = @cohort.assignments
+    @create_comment = @assignment.comments.new 
   end
 
   def edit
@@ -31,6 +32,11 @@ class AssignmentsController < ApplicationController
 
   def destroy
     @assignment.delete
+    redirect_to location_cohort_assignment_path(@location, @cohort, @assignment)
+  end
+
+  def create_comment
+    @create_comment = @assignment.comments.create create_comment_params
     redirect_to location_cohort_assignment_path(@location, @cohort, @assignment)
   end
 
@@ -49,5 +55,9 @@ private
 
   def assignment_params
     params.require(:assignment).permit(:title, :body)
+  end
+
+  def create_comment_params
+    params.require(:comment).permit(:comment)
   end
 end

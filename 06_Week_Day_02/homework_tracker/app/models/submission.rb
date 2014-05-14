@@ -5,4 +5,8 @@ class Submission < ActiveRecord::Base
   belongs_to :assignment
   has_many :comments, as: :commentable
 
+  include Workflow
+  workflow do 
+    state
+
 end

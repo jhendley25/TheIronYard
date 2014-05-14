@@ -5,12 +5,10 @@ Rails.application.routes.draw do
     resources :cohorts do 
       resources :assignments do
         member do
-          get :new_comment
           post :create_comment
         end
         resources :submissions do
            member do
-            get :new_comment
             post :create_comment
           end
 
