@@ -7,6 +7,19 @@ class Submission < ActiveRecord::Base
 
   include Workflow
   workflow do 
-    state
-
+    state :new_submission do
+      event :go_to_reviewing, transitions_to: :reviewing
+      event :go_to_complete, transitions_to: :complete
+      event :go_to_incomplete, transitions_to: :incomplete
+    end
+    state :reviewing do
+      event :go_to_complete, transitions_to: :complete
+      event :go_to_incomplete, transitions_to: :incomplete
+    end
+    state :incomplete do
+      event :go_to_reviewing, transitions_to: :reviewing
+      event :go_to_complete, transitions_to: :complete
+    end
+    state :complete
+  end
 end

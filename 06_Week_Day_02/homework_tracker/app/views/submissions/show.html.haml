@@ -1,5 +1,9 @@
 = @submission.name
-
+%br
+= @submission.workflow_state
+/ (#{workflow_status(@location,@cohort,@assignment,@submission)})
+/ (#{workflow_status(@location,@cohort,@assignment,@submission)}
+= "DUDE"
 %h3 Add Comment to Submission
 - @submission.comments.each do |x|
   = x.comment

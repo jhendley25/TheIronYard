@@ -2,7 +2,7 @@ class SubmissionsController < ApplicationController
   before_filter :find_location
   before_filter :find_cohort
   before_filter :find_assignment
-  before_filter :find_submission, only: [:create_comment, :show, :edit, :update, :destroy]
+  before_filter :find_submission, only: [:create_comment, :show, :edit, :update, :destroy, :new_submission, :reviewing, :incomplete, :complete]
 
   def index 
   end
@@ -37,6 +37,25 @@ class SubmissionsController < ApplicationController
 
   def create_comment
     @create_comment = @submission.comments.create create_comment_params
+    redirect_to location_cohort_assignment_submission_path(@location, @cohort, @assignment, @submission)
+  end
+
+  def new_submission
+    @submission.go_to_new_submission!
+  end
+
+  def reviewing
+    @submission.go_to_reviewing!
+    redirect_to location_cohort_assignment_submission_path(@location, @cohort, @assignment, @submission)
+  end
+
+  def incomplete
+    @submission.go_to_incomplete!
+    redirect_to location_cohort_assignment_submission_path(@location, @cohort, @assignment, @submission)
+  end
+
+  def complete
+    @submission.go_to_complete!
     redirect_to location_cohort_assignment_submission_path(@location, @cohort, @assignment, @submission)
   end
 
