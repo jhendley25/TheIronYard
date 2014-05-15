@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Item name:
+  = @item.item_name
+%p
+  %b Urgency level:
+  = @item.urgency_level
+%p
+  %b Location:
+  = @item.location_id
+
+= link_to 'Edit', edit_item_path(@item)
+\|
+= link_to 'Back', items_path
