@@ -1,3 +1,4 @@
+!!!
 %html{:lang => "en"}
   %head
     %meta{:charset => "utf-8"}
@@ -10,10 +11,6 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
     = javascript_include_tag 'application', 'data-turbolinks-track' => true 
     = csrf_meta_tags 
-    / Bootstrap core CSS
-    / %link{:href => "../../dist/css/bootstrap.min.css", :rel => "stylesheet"}
-    / / Custom styles for this template
-    / %link{:href => "jumbotron-narrow.css", :rel => "stylesheet"}
     / Just for debugging purposes. Don't actually copy this line!
     /[if lt IE 9] <script src="../../assets/js/ie8-responsive-file-warning.js"></script>
     / HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
@@ -25,8 +22,9 @@
       .header
         = render 'layouts/navbar'
 
-      %p.notice= notice
-      %p.alert= alert
+      - if notice || alert
+        %p.notice= notice
+        %p.alert= alert
       = yield
       .footer
         %p &copy; Company 2014

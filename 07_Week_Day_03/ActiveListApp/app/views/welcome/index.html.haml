@@ -1,10 +1,9 @@
-%h1 Welcome#index
-%p Find me in app/views/welcome/index.html.haml
 .jumbotron
-  %h1 Jumbotron heading
-  %p.lead Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+  %h1 One List Today
+  %p.lead 
+    So many people, but only one List.
   %p
-    %a.btn.btn-lg.btn-success{:href => "#", :role => "button"} Sign up today
+    = link_to "Sign Up Today", new_user_registration_path, class: "btn btn-lg btn-success", role: "button"
 .row.marketing
   .col-lg-6
     %h4 Subheading

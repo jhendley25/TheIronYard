@@ -1,8 +1,14 @@
 %ul.nav.nav-pills.pull-right
-  %li.active
-    %a{:href => "#"} Home
-  %li
-    %a{:href => "#"} About
-  %li
-    %a{:href => "#"} Contact
+  %li{ class: active_tab("welcome")}
+    = link_to "Home", root_path
+  %li{ class: active_tab("items")}
+    = link_to "Items", items_path
+  %li{ class: active_tab("locations")}
+    = link_to "Locations", locations_path
+  - if current_user
+    %li
+      = link_to "Logout", destroy_user_session_path, method: :delete
+  - else
+    %li{ class: active_tab("devise/sessions")}
+      = link_to "Login", new_user_session_path
 %h3.text-muted ActiveListApp

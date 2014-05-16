@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
+
   # GET /items
   # GET /items.json
   def index
@@ -15,6 +16,7 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    @locations = Location.all
   end
 
   # GET /items/1/edit
@@ -63,12 +65,20 @@ class ItemsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_location
+      @location = Location.find(params[:location_id])
+    end
+
     def set_item
       @item = Item.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:item_name, :urgency_level, :location_id)
+      params.require(:item).permit(
+        :item_name,
+        :urgency_level,
+        {location_ids:[] },
+      )
     end
 end

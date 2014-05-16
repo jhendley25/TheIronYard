@@ -11,9 +11,11 @@
     = f.text_field :item_name
   .field
     = f.label :urgency_level
-    = f.text_field :urgency_level
+    = f.select :urgency_level, options_for_select(Item::URGENCY_LEVEL, @item.urgency_level), include_blank: "--- Select ---"
+
   .field
-    = f.label :location_id
-    = f.number_field :location_id
+    - @locations.each do |location|
+      = check_box_tag "item[location_ids][]", location.id, @item.locations.map(&:id).include?(location.id), id: "location_#{location.id}"
+      = label_tag "location_#{location.id}", location.name
   .actions
     = f.submit 'Save'
