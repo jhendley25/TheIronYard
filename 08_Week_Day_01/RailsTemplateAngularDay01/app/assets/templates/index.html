@@ -1,0 +1,8 @@
+<div class="jumboton">
+  <h1>{{title}}</h1>
+</div>
+
+<div class="row" ng-repeat="tweet in data.tweets">
+  <h2><a ng-click="viewTweet($index)">{{ tweet.hashtags }}</a></h2>
+  <p>{{ tweet.content }}</p>
+</div> 
