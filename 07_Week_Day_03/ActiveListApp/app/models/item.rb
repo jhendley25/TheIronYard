@@ -6,4 +6,13 @@ class Item < ActiveRecord::Base
     "Need Now",
     "Getting Low"
   ]
+
+  WHERES_THE_ITEM = [
+    [""]
+
+  include Workflow
+  workflow do
+    state :in_que do
+      event :
+  end
 end

@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    @locations = @item.locations
   end
 
   # GET /items/new
@@ -79,6 +80,7 @@ class ItemsController < ApplicationController
         :item_name,
         :urgency_level,
         {location_ids:[] },
+        :workflow_state
       )
     end
 end

@@ -8,7 +8,8 @@
   = @item.urgency_level
 %p
   %b Location:
-  = @item.location_id
+  - @locations.each do |location|
+    = location.name
 
 = link_to 'Edit', edit_item_path(@item)
 \|
