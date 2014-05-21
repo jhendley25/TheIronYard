@@ -13,7 +13,7 @@ module ItemsHelper
       'success'
     elsif item.workflow_state == 'bought'
       'info'
-    else item.workflow_state == "not_needed"
+    else item.workflow_state == 'not_needed'
       'warning'
     end
   end
